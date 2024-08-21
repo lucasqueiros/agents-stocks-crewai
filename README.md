@@ -45,7 +45,7 @@ Este projeto foi implementado no Streamlit e está disponível para uso público
 1. Clone o repositório:
     ```bash
     git clone https://github.com/seu_usuario/stock-analysis-automation.git
-    cd stock-analysis-automation
+    cd agents_stocks_crewai
     ```
 
 2. Instale as dependências:
@@ -55,10 +55,10 @@ Este projeto foi implementado no Streamlit e está disponível para uso público
 
 3. Execute a aplicação localmente com Streamlit:
     ```bash
-    streamlit run app.py
+    streamlit run crewai-stocks.py
     ```
 
-4. Insira o ticker da ação que deseja pesquisar na barra lateral e clique em "Run Research".
+4. Insira o ticket da ação que deseja pesquisar na barra lateral e clique em "Run Research".
 
 ## Licença
 
