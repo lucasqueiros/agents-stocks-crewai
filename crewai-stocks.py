@@ -1,4 +1,4 @@
-#imports
+# Importando bibliotecas necessárias
 import json
 import os
 from datetime import datetime
@@ -14,23 +14,23 @@ from langchain_community.tools import DuckDuckGoSearchResults
 import streamlit as st
 
 
-
-#criando yahoo finance tool
+# Função para buscar o histórico de preços de uma ação específica usando o Yahoo Finance
 def fetch_stock_price(ticket):
     stock = yf.download('AAPL', start='2023-08-08', end='2024-08-08')
     return stock
 
+# Definindo a ferramenta de análise de preços de ações
 yahoo_finance_tool = Tool(
     name = "Yahoo Finance Tool",
     description = "Fetches stock princes for {ticket} from the last year about a specific company from Yahoo Finance API",
     func= lambda ticket: fetch_stock_price(ticket)
 )
 
+# Configurando a chave da API da OpenAI como variável de ambiente
 os.environ['OPENAI_API_KEY']= st.secrets['OPEN_API_KEY']
 llm = ChatOpenAI(model="gpt-3.5-turbo")
 
-
-
+# Definindo um agente para analisar preços das ações
 stockPriceAnalyst = Agent(
     role= "Senior Stock price Analyst",
     goal="Find the {ticket} and analyses trends",
